@@ -1,0 +1,25 @@
+{
+  "name": "hypertodo",
+  "version": "0.0.1",
+  "private": true,
+  "main": "public/index.html",
+  "scripts": {
+    "clean": "rm -rf dist .cache",
+    "prestart": "yarn clean",
+    "start": "parcel public/index.html",
+    "prebuild": "yarn lint && yarn clean",
+    "build": "env NODE_ENV=production parcel build --experimental-scope-hoisting --detailed-report --public-url ./ ./public/index.html",
+    "lint": "tslint --format stylish --project tsconfig.json"
+  },
+  "dependencies": {
+    "hyperapp": "^1.2.9"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.9",
+    "parcel-bundler": "^1.9.7",
+    "parcel-plugin-typescript": "^1.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-standard-plus": "^2.1.1",
+    "typescript": "^2.9.2"
+  }
+}
